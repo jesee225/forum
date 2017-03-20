@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}
+发帖页面
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <form class="pure-form" action="{{ url_for('topic.add') }}" method="post">
+                <fieldset class="pure-group">
+                    <input name="title" class="pure-input-1-2" placeholder="A title" required>
+                    <br>
+                    <textarea name="content" class="pure-input-1-2" placeholder="Textareas work too"
+                              required></textarea>
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">发帖</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

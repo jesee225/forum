@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{{ owner.username }}的主页
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <img src="{{ owner.img }}">
+            <div>用户名：{{ owner.username }}</div>
+            <div>发帖： {{ number_of_topics }}</div>
+            <div>回帖： {{ number_of_comments }}</div>
+            <div>
+                <a href="{{ url_for('topic.user_index', id=owner.id) }}">发帖列表： {{ number_of_topics }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %}
+修改页面
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <div>
+            <form class="pure-form" action="{{ url_for('topic.update', id=topic.id) }}" method="post">
+                <fieldset class="pure-group">
+                    <input name="title" class="pure-input-1-2" placeholder="A title" value="{{ topic.title }}" required>
+                    <br>
+                    <textarea name="content" class="pure-input-1-2" placeholder="Textareas work too" required>{{ topic.content}}</textarea>
+                </fieldset>
+                <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">修改</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

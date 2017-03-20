@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+娱乐贴
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1><a href="{{ url_for('topic.new') }}">我要发帖</a></h1>
+    <p>畅所欲言</p>
+</div>
+{% for t in topics %}
+<div class="posts">
+    <h1 class="content-subhead"></h1>
+    <!-- A single blog post -->
+    <section class="post">
+        <header class="post-header">
+            <a href="{{ url_for('user.user_profile', id=t.user_id) }}">
+                <img width="48" height="48" class="post-avatar"
+                     src="{{ t.user.img }}">
+            </a>
+            <h3 class="post-title"><a href="{{ url_for('topic.detail', id=t.id) }}">{{ t.title }}</a></h3>
+            <p class="post-meta">
+                By <a href="{{ url_for('user.user_profile', id=t.user_id) }}">{{ t.user.username }}</a>
+                更新于: {{ t.created_time }}
+            </p>
+        </header>
+    </section>
+</div>
+{%endfor%}
+
+{% endblock %}
